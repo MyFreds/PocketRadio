@@ -7,7 +7,7 @@ class ServerForm extends CustomForm
     /** @var string */
     protected $iconURL = '';
 
-    final public function jsonSerialize()
+    final public function jsonSerialize(): array
     {
         $data = [
             'type' => 'custom_form',
