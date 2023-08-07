@@ -40,7 +40,7 @@ class ModalForm implements CustomUI
         $this->falseButtonText = $falseButtonText;
     }
 
-    final public function jsonSerialize()
+    final public function jsonSerialize(): array
     {
         return [
             'type' => 'modal',
