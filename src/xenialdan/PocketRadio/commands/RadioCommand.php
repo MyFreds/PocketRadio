@@ -8,7 +8,6 @@ use Exception;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\CommandExecutor;
-use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
@@ -20,7 +19,7 @@ use xenialdan\customui\windows\SimpleForm;
 use xenialdan\libnbs\Song;
 use xenialdan\PocketRadio\Loader;
 
-class RadioCommand extends PluginCommand
+class RadioCommand extends CommandExecutor
 {
     public function onCommand(CommandSender $sender, Command $command, string $commandLabel, array $args): bool
     {
