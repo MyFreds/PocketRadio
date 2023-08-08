@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace xenialdan\PocketRadio\commands;
 
 use Exception;
+use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\CommandExecutor;
 use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
@@ -20,24 +22,10 @@ use xenialdan\PocketRadio\Loader;
 
 class RadioCommand extends PluginCommand
 {
-    public function __construct(Plugin $plugin)
+    public function onCommand(CommandSender $sender, Command $command, string $commandLabel, array $args): bool
     {
-        parent::__construct("radio", $plugin);
-        $this->setPermission("pocketradio.command.radio");
-        $this->setDescription("Manage radio");
-        $this->setUsage("/radio | /radio volume | /radio select");
-    }
-
-    public function execute(CommandSender $sender, string $commandLabel, array $args)
-    {
-        /** @var Player $sender */
-        $return = $sender->hasPermission($this->getPermission());
-        if (!$return) {
-            $sender->sendMessage(TextFormat::RED . "You do not have permissions to run this command");
-            return true;
-        }
+        $return = true;
         try {
-            $return = true;
             switch ($args[0] ?? "menu") {
                 case "menu":
                 {
